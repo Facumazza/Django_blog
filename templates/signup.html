@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+
+
+{% block contenido %}
+
+
+    <main class="container">
+
+        <div class="row">
+            <div class="col-md-3"></div>
+
+            <div class="col-md-6">
+
+                <div class="w-100 m-auto text-center">
+                    <form method="POST" class="form-group">
+                        {% if error %}
+                        <div class="alert alert-danger mt-3">
+                            <strong>Error:</strong> {{ error }}
+                        </div>
+                        {% endif %}
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-success">Resgistrarte</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-3"></div>
+        </div>
+
+    </main>
+{% endblock  %}
